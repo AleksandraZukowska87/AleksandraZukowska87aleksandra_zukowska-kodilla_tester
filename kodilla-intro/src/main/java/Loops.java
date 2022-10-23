@@ -26,6 +26,20 @@ public class Loops {
         System.out.println(result);
 
 
+
+
+
+        String[] names = new String[] {"Zygfryd", "Gwidon", "Florentyna"};
+        for ( int i=0; i< names.length; i ++){
+            System.out.println(names[i]);
+        }
+        for( int i  = names.length -1; i>=0 ; i --){
+            System.out.println(names[i]);
+        }
+
+
+
+
     }
     public static int sumOfElements(int[] numbers){
         int result = 0;
