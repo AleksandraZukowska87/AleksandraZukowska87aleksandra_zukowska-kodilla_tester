@@ -33,6 +33,15 @@ public class FirstClass {
             System.out.println(" Laptop nie z tego roku wiec ciezko stwierdzic czy cena jest dobra");
         }
 
+        Grades grades = new Grades();
+        grades.add(5);
+        grades.add(6);
+        grades.add(3);
+
+
+        System.out.println(grades.getAverage());
+        System.out.println(grades.getLast());
+
 
     }
 }
