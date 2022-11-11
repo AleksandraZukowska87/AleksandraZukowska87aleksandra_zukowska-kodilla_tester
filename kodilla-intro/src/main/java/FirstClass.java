@@ -42,6 +42,36 @@ public class FirstClass {
         System.out.println(grades.getAverage());
         System.out.println(grades.getLast());
 
+        User[] users = {new User("marek",26),
+                        new User("tomek",48),
+                        new User("bartek",21),
+                        new User("kuba",22),
+                        new User("michal",23)};
+
+        int ageTotal = 0;
+        int ageAverage;
+
+        for (int i = 0; i< users.length;i++){
+            ageTotal += users[i].age;
+        }
+        ageAverage = ageTotal / users.length;
+
+        System.out.println(ageAverage);
+
+        for (int i = 0; i < users.length; i++){
+            if (users[i].age < ageAverage){
+                System.out.println(users[i].name);
+            }
+        }
+
+
+        RandomNumbers random = new RandomNumbers();
+        random.generateRandom();
+        System.out.println(random.getTotal());
+        System.out.println(random.getSmallest());
+        System.out.println(random.getBiggest());
+
+
 
     }
 }
