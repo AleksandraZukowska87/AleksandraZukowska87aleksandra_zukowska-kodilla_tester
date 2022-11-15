@@ -42,11 +42,11 @@ public class FirstClass {
         System.out.println(grades.getAverage());
         System.out.println(grades.getLast());
 
-        User[] users = {new User("marek",26),
-                        new User("tomek",48),
-                        new User("bartek",21),
-                        new User("kuba",22),
-                        new User("michal",23)};
+        User[] users = {new User("marek",26,180),
+                        new User("tomek",48,180),
+                        new User("bartek",21,180),
+                        new User("kuba",22,180),
+                        new User("michal",23,180)};
 
         int ageTotal = 0;
         int ageAverage;
