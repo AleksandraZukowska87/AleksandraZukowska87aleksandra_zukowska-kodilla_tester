@@ -6,7 +6,7 @@ public class Book {
         this.author = author;
         this.title = title;
     }
-    static Book of(String author, String title){
+    public static Book of(String author, String title){
         return new Book(author,title);
     }
 }
