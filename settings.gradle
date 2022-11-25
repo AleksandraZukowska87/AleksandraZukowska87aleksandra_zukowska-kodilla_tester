@@ -1,3 +1,5 @@
 rootProject.name = 'kodilla-course'
 include 'kodilla-intro'
+include 'kodilla-intro:com.kodilla.collections'
+findProject(':kodilla-intro:com.kodilla.collections')?.name = 'com.kodilla.collections'
 
