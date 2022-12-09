@@ -1,7 +1,7 @@
 package com.kodilla.collections.interfaces.homework;
 
 public class Ferrari implements Car {
-    int speed =0;
+    public int speed = 0;
     public Ferrari(){
         speed = 0;
     }

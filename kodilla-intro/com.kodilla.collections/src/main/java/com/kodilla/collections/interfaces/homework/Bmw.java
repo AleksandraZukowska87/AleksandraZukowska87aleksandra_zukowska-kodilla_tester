@@ -1,10 +1,8 @@
 package com.kodilla.collections.interfaces.homework;
 
 public class Bmw implements Car{
-    int speed;
-    public Bmw(){
-        speed = 0;
-    }
+    public int speed = 0;
+    public Bmw(){ speed = 0;}
     @Override
     public int getSpeed() {
         return this.speed;
