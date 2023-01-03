@@ -9,14 +9,14 @@ public class Calculator {
     public Calculator () {
 
     }
-    int  add (int number1 , int number2){
+    double  add (double number1 , double number2){
         return number1 + number2 ;
 
     }
-    int subtract ( int number1, int number2){
+    double subtract ( double number1, double number2){
         return number1 - number2;
     }
-    int square (int number ){
+    double square (double number ){
         return number * number ;
 
     }

@@ -5,7 +5,7 @@ public class Application {
         Calculator calculator = new Calculator();
         int a = 9;
         int b = 7;
-        int result = calculator.add(a, b);
+        double result = calculator.add(a, b);
         boolean correct = ResultChecker.assertEquals(16, result);
         if (correct)
             System.out.println(" metoda add dziala poprawnie dla liczb " + a + " oraz " + b);
@@ -13,7 +13,7 @@ public class Application {
             System.out.println(" metoda add nie dziala poprawnie dla licz " + a + " oraz " + b);
 
         }
-        result = calculator.subtract(a,b);
+        //result = calculator.subtract(a,b);
         correct = ResultChecker.assertEquals(2, result);
         if (correct)
             System.out.println(" metoda subtract dziala poprawnie dla liczb " + a + " oraz " + b);
@@ -22,7 +22,7 @@ public class Application {
 
         }
 
-        result = calculator.square(a);
+        //result = calculator.square(a);
         correct = ResultChecker.assertEquals(81, result);
         if (correct)
             System.out.println(" metoda square dziala poprawnie dla liczby " + a );
