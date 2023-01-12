@@ -29,7 +29,8 @@ public class CalculatorTestSuite {
         Calculator calculator = new Calculator();
         double a = 10.26;
         double squareResult = calculator.square(a);
-        assertEquals(105.2676,squareResult);
+        assertEquals(105.2676, squareResult);
+
     }
 
 }
