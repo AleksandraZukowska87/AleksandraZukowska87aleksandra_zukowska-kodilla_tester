@@ -26,6 +26,11 @@ public class Application {
         Bank bank = new Bank(bankomaty);
 
         System.out.println(bank.zwrocSredniaWartoscWplaty());
+        System.out.println(bank.zwrocSredniaWartoscWyplaty());
+        System.out.println(bank.zwrocLiczbeTransakcjiZwiazanychZWyplata());
+        System.out.println(bank.zwrocLiczbeTransakcjiZwiazanychZWplata());
+        System.out.println(bank.zwrocCalkowityBilansZeWszystkichBankomatow());
+
 
     }
 }
