@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e9861edf-59e9-4a07-84e1-85959a1d73ed" activeEnvironment="Default" name="Kodilla soap" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="3be101b3-1e16-404b-b43d-63656784d937" wsaVersion="NONE" name="CoursesPortSoap11" type="wsdl" bindingName="{http://kodilla.com/courses/soap}CoursesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/courses.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/courses.wsdl"><con:part><con:url>http://localhost:8080/ws/courses.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://kodilla.com/courses/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://kodilla.com/courses/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kodilla.com/courses/soap">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://kodilla.com/courses/soap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getCourseRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCourseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="course" type="tns:course"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="course">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="length" type="xs:int"/>
+          <xs:element name="technology" type="tns:technology"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="technology">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="JAVA"/>
+          <xs:enumeration value="JAVASCRIPT"/>
+          <xs:enumeration value="HTML"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCourseResponse">
+    <wsdl:part element="tns:getCourseResponse" name="getCourseResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCourseRequest">
+    <wsdl:part element="tns:getCourseRequest" name="getCourseRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CoursesPort">
+    <wsdl:operation name="getCourse">
+      <wsdl:input message="tns:getCourseRequest" name="getCourseRequest"></wsdl:input>
+      <wsdl:output message="tns:getCourseResponse" name="getCourseResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CoursesPortSoap11" type="tns:CoursesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCourse">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCourseRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CoursesPortService">
+    <wsdl:port binding="tns:CoursesPortSoap11" name="CoursesPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="a33f9a3b-16b0-4ab1-b4ac-590fa410682e" isOneWay="false" action="" name="getCourse" bindingOperationName="getCourse" type="Request-Response" outputName="getCourseResponse" inputName="getCourseRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="da740f76-1c80-4081-b87d-e1af5eb2cf51" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getCourseRequest>\r
+         <soap:name>?</soap:name>\r
+      </soap:getCourseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://kodilla.com/courses/soap/CoursesPort/getCourseRequest"/></con:call></con:operation></con:interface><con:testSuite id="353ce330-9eca-4806-b11b-8566462adae1" name="Courses TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="6e6c163a-5a11-4831-bbbf-567dbf98ae8f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Not existing course TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="229d92ed-adc6-45d8-88ed-533c4af26194" name="getCourse"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CoursesPortSoap11</con:interface><con:operation>getCourse</con:operation><con:request name="getCourse" id="9943ac6c-330e-4d38-b005-233a28d0f24c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getCourseRequest>\r
+         <soap:name>Puthon Developer</soap:name>\r
+      </soap:getCourseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple NotContains" id="65cf95be-9bf3-4ff9-aa82-755d23bfd1d9" name="Not Contains"><con:configuration><token>length</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getCourseRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:securityTest id="44e32e03-e15a-4731-84fc-a87f101b9a42" name="getCourse Security Test" failOnError="true"><con:settings/><con:testStepSecurityTest><con:testStepId>229d92ed-adc6-45d8-88ed-533c4af26194</con:testStepId><con:testStepSecurityScan type="InvalidTypesSecurityScan" name="Invalid Types" id="8a046469-3d68-46e5-a51a-fe2dd5c6bc1b" applyForFailedStep="false" disabled="false" runOnlyOnce="true"><con:settings/><con:config xsi:type="con:InvalidSecurityScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:typesList><con:type>3</con:type><con:value>true</con:value></con:typesList><con:typesList><con:type>4</con:type><con:value>GpM7</con:value></con:typesList><con:typesList><con:type>5</con:type><con:value>0FB7</con:value></con:typesList><con:typesList><con:type>9</con:type><con:value>-1E4f</con:value></con:typesList><con:typesList><con:type>10</con:type><con:value>12.45E+12</con:value></con:typesList><con:typesList><con:type>11</con:type><con:value>-1.23</con:value></con:typesList><con:typesList><con:type>12</con:type><con:value>SoapUI is	 the&#13; best
+</con:value></con:typesList><con:typesList><con:type>13</con:type><con:value>P1Y2M3DT10H30M12.3S</con:value></con:typesList><con:typesList><con:type>14</con:type><con:value>1999-05-31T13:20:00.000-05:00</con:value></con:typesList><con:typesList><con:type>16</con:type><con:value>1999-05-31</con:value></con:typesList><con:typesList><con:type>22</con:type><con:value>-1267896799</con:value></con:typesList><con:typesList><con:type>23</con:type><con:value>-882223334991111111</con:value></con:typesList><con:typesList><con:type>24</con:type><con:value>-2147483647</con:value></con:typesList><con:typesList><con:type>25</con:type><con:value>-32768</con:value></con:typesList><con:typesList><con:type>26</con:type><con:value>127</con:value></con:typesList><con:typesList><con:type>27</con:type><con:value>0</con:value></con:typesList><con:typesList><con:type>28</con:type><con:value>-1</con:value></con:typesList><con:typesList><con:type>29</con:type><con:value>1</con:value></con:typesList><con:typesList><con:type>30</con:type><con:value>1267896799</con:value></con:typesList><con:typesList><con:type>31</con:type><con:value>882223334991111111</con:value></con:typesList><con:typesList><con:type>32</con:type><con:value>294967295</con:value></con:typesList><con:typesList><con:type>33</con:type><con:value>65535</con:value></con:typesList><con:typesList><con:type>34</con:type><con:value>255</con:value></con:typesList><con:typesList><con:type>35</con:type><con:value>SoapUI is the best</con:value></con:typesList><con:typesList><con:type>36</con:type><con:value>SoapUI is the best</con:value></con:typesList></con:config><con:assertion type="Sensitive Information Exposure" id="1a1be668-eec6-4768-8119-40eebed94efb" name="Sensitive Information Exposure"><con:configuration><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameters label="name" parameterName="Request" xpath="//*:name" checked="true"/></con:checkedParameters><con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:strategy>ONE_BY_ONE</con:strategy><con:delay>100</con:delay></con:executionStrategy></con:testStepSecurityScan></con:testStepSecurityTest><con:properties/></con:securityTest></con:testCase><con:testCase id="aa0b2488-9bca-4df7-b76d-561f40262383" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Course 9 months length TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2a7bb121-2459-4da9-a934-0768c56799ac" name="getCourse"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CoursesPortSoap11</con:interface><con:operation>getCourse</con:operation><con:request name="getCourse" id="9943ac6c-330e-4d38-b005-233a28d0f24c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getCourseRequest>\r
+         <soap:name>Java Developer Plus</soap:name>\r
+      </soap:getCourseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="5d166701-de21-4a88-a2c5-0e4c07c231ed" name="Contains"><con:configuration><token>length>9&lt;</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getCourseRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:securityTest id="076f5902-628d-402a-98ed-23c15f7e990a" name="Schema Compliance SecurityTest" failOnError="true"><con:settings/><con:testStepSecurityTest><con:testStepId>2a7bb121-2459-4da9-a934-0768c56799ac</con:testStepId><con:testStepSecurityScan type="InvalidTypesSecurityScan" name="Invalid Types" id="ce724b16-b7a0-4db5-bb61-35436bae35b4" applyForFailedStep="false" disabled="false" runOnlyOnce="true"><con:settings/><con:config xsi:type="con:InvalidSecurityScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:typesList><con:type>3</con:type><con:value>true</con:value></con:typesList><con:typesList><con:type>4</con:type><con:value>GpM7</con:value></con:typesList><con:typesList><con:type>5</con:type><con:value>0FB7</con:value></con:typesList><con:typesList><con:type>9</con:type><con:value>-1E4f</con:value></con:typesList><con:typesList><con:type>10</con:type><con:value>12.45E+12</con:value></con:typesList><con:typesList><con:type>11</con:type><con:value>-1.23</con:value></con:typesList><con:typesList><con:type>12</con:type><con:value>SoapUI is	 the&#13; best
+</con:value></con:typesList><con:typesList><con:type>13</con:type><con:value>P1Y2M3DT10H30M12.3S</con:value></con:typesList><con:typesList><con:type>14</con:type><con:value>1999-05-31T13:20:00.000-05:00</con:value></con:typesList><con:typesList><con:type>16</con:type><con:value>1999-05-31</con:value></con:typesList><con:typesList><con:type>22</con:type><con:value>-1267896799</con:value></con:typesList><con:typesList><con:type>23</con:type><con:value>-882223334991111111</con:value></con:typesList><con:typesList><con:type>24</con:type><con:value>-2147483647</con:value></con:typesList><con:typesList><con:type>25</con:type><con:value>-32768</con:value></con:typesList><con:typesList><con:type>26</con:type><con:value>127</con:value></con:typesList><con:typesList><con:type>27</con:type><con:value>0</con:value></con:typesList><con:typesList><con:type>28</con:type><con:value>-1</con:value></con:typesList><con:typesList><con:type>29</con:type><con:value>1</con:value></con:typesList><con:typesList><con:type>30</con:type><con:value>1267896799</con:value></con:typesList><con:typesList><con:type>31</con:type><con:value>882223334991111111</con:value></con:typesList><con:typesList><con:type>32</con:type><con:value>294967295</con:value></con:typesList><con:typesList><con:type>33</con:type><con:value>65535</con:value></con:typesList><con:typesList><con:type>34</con:type><con:value>255</con:value></con:typesList><con:typesList><con:type>35</con:type><con:value>SoapUI is the best</con:value></con:typesList><con:typesList><con:type>36</con:type><con:value>SoapUI is the best</con:value></con:typesList></con:config><con:assertion type="Schema Compliance" id="abbcac09-ed36-4314-80c2-c582bcbda4db" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameters label="name" parameterName="Request" xpath="//*:name" checked="true"/></con:checkedParameters><con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:strategy>ONE_BY_ONE</con:strategy><con:delay>100</con:delay></con:executionStrategy></con:testStepSecurityScan></con:testStepSecurityTest><con:properties/></con:securityTest></con:testCase><con:testCase id="80211b44-ebbc-44c5-8076-f0df47e65d72" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Course 6 months length TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f187cbcb-683d-4a1f-bb82-e8653fc23496" name="getCourse"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CoursesPortSoap11</con:interface><con:operation>getCourse</con:operation><con:request name="getCourse" id="9943ac6c-330e-4d38-b005-233a28d0f24c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://kodilla.com/courses/soap">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getCourseRequest>\r
+         <soap:name>Java Developer</soap:name>\r
+      </soap:getCourseRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="5d166701-de21-4a88-a2c5-0e4c07c231ed" name="Contains"><con:configuration><token>length>6&lt;</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://kodilla.com/courses/soap/CoursesPort/getCourseRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
