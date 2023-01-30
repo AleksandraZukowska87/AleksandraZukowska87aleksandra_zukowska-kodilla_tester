@@ -16,4 +16,10 @@ public double radius;
         return 2 * Math.PI * this.radius;
     }
 
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
+    }
 }
