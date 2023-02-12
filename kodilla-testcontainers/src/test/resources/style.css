@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.wizytowka {
+  background: #D3D3D3;
+  color: black;
+  border: 1px solid;
+  padding: 30px;
+  text-align: center;
+}
